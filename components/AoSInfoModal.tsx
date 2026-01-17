@@ -11,8 +11,8 @@ interface AoSInfoModalProps {
 
 // Default Data (used if nothing in DB)
 const DEFAULT_INFO: AoSInfoData = {
-  introduction: `Apostolatus Maris (AoS) - Tông đồ Biển cả, là một tổ chức Công giáo chuyên chăm sóc mục vụ cho những người đi biển, ngư dân và gia đình của họ. 
-Hệ thống quản lý này giúp HĐGM theo dõi, cập nhật thông tin các giáo sĩ đang phục vụ trong mạng lưới AoS một cách hiệu quả và minh bạch.`,
+  introduction: AOS là cộng đồng truyền giáo qua nền tảng game Roblox, nơi đức tin Công giáo được gieo mầm giữa không gian sáng tạo và kết nối của giới trẻ. Qua các hoạt động trong game, sinh hoạt cộng đồng và tinh thần bác ái, AOS mong muốn mang Tin Mừng đến gần hơn với mọi người bằng ngôn ngữ của thời đại số. 
+Cộng đồng chọn chân phước Carlo Acutis làm thánh bổn mạng – người trẻ đã dùng công nghệ và internet để loan báo đức tin. Noi gương ngài, AOS khao khát trở thành một môi trường lành mạnh, yêu thương và đầy hy vọng, nơi mỗi người có thể vừa chơi game, vừa lớn lên trong đức tin và tình huynh đệ.`,
   documents: [
     { id: 1, title: "Quy chế Hoạt động AoS 2024", type: "PDF", size: "2.5 MB", url: "#" },
     { id: 2, title: "Mẫu đơn xin gia nhập Hội", type: "DOCX", size: "500 KB", url: "#" },
