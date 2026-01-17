@@ -378,10 +378,10 @@ const AoSInfoModal: React.FC<AoSInfoModalProps> = ({ isOpen, onClose, isLoggedIn
                                     <i className="fab fa-facebook-f"></i> Facebook
                                 </a>
                                 <a href={infoData.socialLinks.website} target="_blank" rel="noreferrer" className="flex-1 bg-gray-800 text-white py-2 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition shadow">
-                                    <i className="fas fa-globe"></i> Website
+                                    <i className="fas fa-globe"></i> Roblox Group
                                 </a>
                                 <a href={infoData.socialLinks.youtube} target="_blank" rel="noreferrer" className="flex-1 bg-red-600 text-white py-2 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition shadow">
-                                    <i className="fab fa-youtube"></i> Youtube
+                                    <i className="fab fa-youtube"></i> Discord
                                 </a>
                             </div>
                         )}
