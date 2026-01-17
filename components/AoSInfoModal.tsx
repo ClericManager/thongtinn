@@ -15,8 +15,8 @@ const DEFAULT_INFO: AoSInfoData = {
 Cộng đồng chọn chân phước Carlo Acutis làm thánh bổn mạng – người trẻ đã dùng công nghệ và internet để loan báo đức tin. Noi gương ngài, AOS khao khát trở thành một môi trường lành mạnh, yêu thương và đầy hy vọng, nơi mỗi người có thể vừa chơi game, vừa lớn lên trong đức tin và tình huynh đệ.`,
   documents: [
     { id: 1, title: "Quy chế Hoạt động AoS 2024", type: "PDF", size: "2.5 MB", url: "#" },
-    { id: 2, title: "Mẫu đơn xin gia nhập Hội", type: "DOCX", size: "500 KB", url: "#" },
-    { id: 3, title: "Lịch Phụng vụ & Sự kiện 2025", type: "XLSX", size: "1.2 MB", url: "#" },
+    { id: 2, title: "Mẫu đơn xin gia nhập", type: "DOCX", size: "500 KB", url: "#" },
+    { id: 3, title: "Lịch Phụng vụ & Sự kiện 2026", type: "XLSX", size: "1.2 MB", url: "#" },
     { id: 4, title: "Hướng dẫn Mục vụ Di dân", type: "PDF", size: "3.0 MB", url: "#" },
   ],
   socialLinks: {
