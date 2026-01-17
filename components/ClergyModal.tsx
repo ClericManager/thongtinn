@@ -223,7 +223,7 @@ const ClergyModal: React.FC<ClergyModalProps> = ({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Full Name */}
                   <div className="col-span-2">
-                    <label className="block text-sm font-bold text-gray-600">Họ và Tên</label>
+                    <label className="block text-sm font-bold text-gray-600">Tên Thánh , Họ và Tên</label>
                     {isViewMode ? (
                       <p className="text-xl font-bold text-aosGreen">{formData.fullName}</p>
                     ) : (
