@@ -36,7 +36,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLoginSuccess
           <i className="fas fa-times text-xl"></i>
         </button>
 
-        <h2 className="text-2xl font-bold text-aosGreen mb-6 text-center">Đăng nhập HĐGM</h2>
+        <h2 className="text-2xl font-bold text-aosGreen mb-6 text-center">Đăng nhập HĐMV</h2>
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
