@@ -362,7 +362,7 @@ const AoSInfoModal: React.FC<AoSInfoModalProps> = ({ isOpen, onClose, isLoggedIn
                                     />
                                 </div>
                                 <div className="flex items-center gap-3">
-                                    <div className="w-8 flex justify-center text-red-600"><i className="fab fa-youtube text-xl"></i></div>
+                                    <div className="w-8 flex justify-center text-red-600"><i className="fab fa-discord text-xl"></i></div>
                                     <input 
                                         type="text"
                                         value={editForm.socialLinks.youtube}
