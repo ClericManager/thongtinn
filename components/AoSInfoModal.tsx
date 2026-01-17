@@ -9,7 +9,8 @@ interface AoSInfoModalProps {
   isLoggedIn: boolean;
 }
 
-// Default Data (used if nothing in DB)
+// --- CẬP NHẬT DEFAULT INFO ---
+// Thêm tiktok, youtube và đổi youtube cũ thành discord
 const DEFAULT_INFO: AoSInfoData = {
   introduction: `AOS.`,
   documents: [
@@ -21,7 +22,9 @@ const DEFAULT_INFO: AoSInfoData = {
   socialLinks: {
     facebook: "#",
     website: "#",
-    youtube: "#"
+    discord: "#", // Key mới cho Discord
+    tiktok: "#",  // Key mới cho TikTok
+    youtube: "#"  // Key mới cho YouTube
   }
 };
 
@@ -49,11 +52,18 @@ const AoSInfoModal: React.FC<AoSInfoModalProps> = ({ isOpen, onClose, isLoggedIn
         setIsLoading(true);
         getAoSInfo().then(data => {
             if (data) {
-                 // Ensure socialLinks exists by merging with defaults
+                // Xử lý migration dữ liệu cũ (nếu db cũ lưu discord dưới tên youtube)
+                const loadedSocials = data.socialLinks || {};
+                // Nếu db cũ có key 'youtube' nhưng chưa có 'discord', gán giá trị đó qua 'discord'
+                if (loadedSocials.youtube && !loadedSocials.discord && !loadedSocials.youtube.includes('youtube.com')) {
+                    loadedSocials.discord = loadedSocials.youtube;
+                    loadedSocials.youtube = "#"; // Reset youtube thật
+                }
+
                 const completeData = { 
                     ...DEFAULT_INFO, 
                     ...data, 
-                    socialLinks: { ...DEFAULT_INFO.socialLinks, ...(data.socialLinks || {}) } 
+                    socialLinks: { ...DEFAULT_INFO.socialLinks, ...loadedSocials } 
                 };
                 setInfoData(completeData);
                 setEditForm(completeData);
@@ -334,13 +344,14 @@ const AoSInfoModal: React.FC<AoSInfoModalProps> = ({ isOpen, onClose, isLoggedIn
                         </div>
                     </div>
 
-                    {/* Social Media */}
+                    {/* --- SOCIAL MEDIA SECTION (Đã chỉnh sửa) --- */}
                     <div>
                         <h3 className="text-lg font-bold text-gray-800 mb-3 border-l-4 border-blue-500 pl-3">
                             Kết nối với chúng tôi
                         </h3>
                         {isEditing ? (
                              <div className="space-y-3 bg-gray-50 p-3 rounded border">
+                                {/* Facebook */}
                                 <div className="flex items-center gap-3">
                                     <div className="w-8 flex justify-center text-[#1877F2]"><i className="fab fa-facebook-f text-xl"></i></div>
                                     <input 
@@ -351,6 +362,7 @@ const AoSInfoModal: React.FC<AoSInfoModalProps> = ({ isOpen, onClose, isLoggedIn
                                         className="flex-1 border p-2 rounded text-sm focus:border-aosGreen outline-none"
                                     />
                                 </div>
+                                {/* Website / Roblox */}
                                 <div className="flex items-center gap-3">
                                     <div className="w-8 flex justify-center text-gray-800"><i className="fas fa-globe text-xl"></i></div>
                                     <input 
@@ -361,27 +373,58 @@ const AoSInfoModal: React.FC<AoSInfoModalProps> = ({ isOpen, onClose, isLoggedIn
                                         className="flex-1 border p-2 rounded text-sm focus:border-aosGreen outline-none"
                                     />
                                 </div>
+                                {/* Discord (Sửa từ youtube cũ) */}
                                 <div className="flex items-center gap-3">
                                     <div className="w-8 flex justify-center text-[#5865F2] hover:text-[#4752c4] transition"><i className="fab fa-discord text-xl"></i></div>
                                     <input 
                                         type="text"
+                                        value={editForm.socialLinks.discord}
+                                        onChange={(e) => handleSocialChange('discord', e.target.value)}
+                                        placeholder="Link Discord Server"
+                                        className="flex-1 border p-2 rounded text-sm focus:border-aosGreen outline-none"
+                                    />
+                                </div>
+                                {/* TikTok (Mới) */}
+                                <div className="flex items-center gap-3">
+                                    <div className="w-8 flex justify-center text-black"><i className="fab fa-tiktok text-xl"></i></div>
+                                    <input 
+                                        type="text"
+                                        value={editForm.socialLinks.tiktok}
+                                        onChange={(e) => handleSocialChange('tiktok', e.target.value)}
+                                        placeholder="Link kênh TikTok"
+                                        className="flex-1 border p-2 rounded text-sm focus:border-aosGreen outline-none"
+                                    />
+                                </div>
+                                {/* YouTube (Mới) */}
+                                <div className="flex items-center gap-3">
+                                    <div className="w-8 flex justify-center text-[#FF0000]"><i className="fab fa-youtube text-xl"></i></div>
+                                    <input 
+                                        type="text"
                                         value={editForm.socialLinks.youtube}
                                         onChange={(e) => handleSocialChange('youtube', e.target.value)}
-                                        placeholder="Link Discord"
+                                        placeholder="Link kênh YouTube"
                                         className="flex-1 border p-2 rounded text-sm focus:border-aosGreen outline-none"
                                     />
                                 </div>
                              </div>
                         ) : (
-                            <div className="flex gap-4">
-                                <a href={infoData.socialLinks.facebook} target="_blank" rel="noreferrer" className="flex-1 bg-[#1877F2] text-white py-2 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition shadow">
+                            // Giao diện hiển thị dạng Grid
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <a href={infoData.socialLinks.facebook} target="_blank" rel="noreferrer" className="bg-[#1877F2] text-white py-2 px-4 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition shadow">
                                     <i className="fab fa-facebook-f"></i> Facebook
                                 </a>
-                                <a href={infoData.socialLinks.website} target="_blank" rel="noreferrer" className="flex-1 bg-gray-800 text-white py-2 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition shadow">
-                                    <i className="fas fa-roblox text-black"></i> Roblox Group
+                                <a href={infoData.socialLinks.website} target="_blank" rel="noreferrer" className="bg-gray-800 text-white py-2 px-4 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition shadow">
+                                    <i className="fas fa-roblox text-white"></i> Roblox Group
                                 </a>
-                                <a href={infoData.socialLinks.youtube} target="_blank" rel="noreferrer" className="flex-1 bg-[#5865F2] text-white py-2 rounded-lg flex items-center justify-center gap-2 transition shadow hover:bg-[#4752C4] hover:shadow-lg">
+                                <a href={infoData.socialLinks.discord} target="_blank" rel="noreferrer" className="bg-[#5865F2] text-white py-2 px-4 rounded-lg flex items-center justify-center gap-2 transition shadow hover:bg-[#4752C4]">
                                     <i className="fab fa-discord"></i> Discord
+                                </a>
+                                <a href={infoData.socialLinks.tiktok} target="_blank" rel="noreferrer" className="bg-black text-white py-2 px-4 rounded-lg flex items-center justify-center gap-2 hover:opacity-80 transition shadow">
+                                    <i className="fab fa-tiktok"></i> TikTok
+                                </a>
+                                {/* YouTube nằm trọn 1 hàng dưới */}
+                                <a href={infoData.socialLinks.youtube} target="_blank" rel="noreferrer" className="sm:col-span-2 bg-[#FF0000] text-white py-2 px-4 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition shadow">
+                                    <i className="fab fa-youtube"></i> YouTube Channel
                                 </a>
                             </div>
                         )}
