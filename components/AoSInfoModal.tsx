@@ -418,7 +418,7 @@ const AoSInfoModal: React.FC<AoSInfoModalProps> = ({ isOpen, onClose, isLoggedIn
         {/* Standard Footer */}
         {!isEditing && (
             <div className="bg-gray-50 p-4 text-center border-t border-gray-100 shrink-0">
-                <p className="text-xs text-gray-400">© 2024 AoS Management System. All rights reserved.</p>
+                <p className="text-xs text-gray-400">© 2026 Quoc Dev.</p>
             </div>
         )}
 
