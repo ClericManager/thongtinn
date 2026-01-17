@@ -362,7 +362,7 @@ const AoSInfoModal: React.FC<AoSInfoModalProps> = ({ isOpen, onClose, isLoggedIn
                                     />
                                 </div>
                                 <div className="flex items-center gap-3">
-                                    <div className="w-8 flex justify-center text-red-600"><i className="fab fa-discord text-xl"></i></div>
+                                    <div className="w-8 flex justify-center text-[#5865F2] hover:text-[#4752c4] transition"><i className="fab fa-discord text-xl"></i></div>
                                     <input 
                                         type="text"
                                         value={editForm.socialLinks.youtube}
@@ -378,7 +378,7 @@ const AoSInfoModal: React.FC<AoSInfoModalProps> = ({ isOpen, onClose, isLoggedIn
                                     <i className="fab fa-facebook-f"></i> Facebook
                                 </a>
                                 <a href={infoData.socialLinks.website} target="_blank" rel="noreferrer" className="flex-1 bg-gray-800 text-white py-2 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition shadow">
-                                    <i className="fas fa-globe"></i> Roblox Group
+                                    <i className="fas fa-roblox text-black"></i> Roblox Group
                                 </a>
                                 <a href={infoData.socialLinks.youtube} target="_blank" rel="noreferrer" className="flex-1 bg-[#5865F2] text-white py-2 rounded-lg flex items-center justify-center gap-2 transition shadow hover:bg-[#4752C4] hover:shadow-lg">
                                     <i className="fab fa-discord"></i> Discord
