@@ -11,12 +11,11 @@ interface AoSInfoModalProps {
 
 // Default Data (used if nothing in DB)
 const DEFAULT_INFO: AoSInfoData = {
-  introduction: AOS là cộng đồng truyền giáo qua nền tảng game Roblox, nơi đức tin Công giáo được gieo mầm giữa không gian sáng tạo và kết nối của giới trẻ. Qua các hoạt động trong game, sinh hoạt cộng đồng và tinh thần bác ái, AOS mong muốn mang Tin Mừng đến gần hơn với mọi người bằng ngôn ngữ của thời đại số. 
-Cộng đồng chọn chân phước Carlo Acutis làm thánh bổn mạng – người trẻ đã dùng công nghệ và internet để loan báo đức tin. Noi gương ngài, AOS khao khát trở thành một môi trường lành mạnh, yêu thương và đầy hy vọng, nơi mỗi người có thể vừa chơi game, vừa lớn lên trong đức tin và tình huynh đệ.`,
+  introduction: `AOS.`,
   documents: [
     { id: 1, title: "Quy chế Hoạt động AoS 2024", type: "PDF", size: "2.5 MB", url: "#" },
-    { id: 2, title: "Mẫu đơn xin gia nhập", type: "DOCX", size: "500 KB", url: "#" },
-    { id: 3, title: "Lịch Phụng vụ & Sự kiện 2026", type: "XLSX", size: "1.2 MB", url: "#" },
+    { id: 2, title: "Mẫu đơn xin gia nhập Hội", type: "DOCX", size: "500 KB", url: "#" },
+    { id: 3, title: "Lịch Phụng vụ & Sự kiện 2025", type: "XLSX", size: "1.2 MB", url: "#" },
     { id: 4, title: "Hướng dẫn Mục vụ Di dân", type: "PDF", size: "3.0 MB", url: "#" },
   ],
   socialLinks: {
@@ -181,8 +180,9 @@ const AoSInfoModal: React.FC<AoSInfoModalProps> = ({ isOpen, onClose, isLoggedIn
         {/* Header */}
         <div className="bg-aosGreen p-5 flex justify-between items-center text-white shrink-0">
           <div className="flex items-center gap-3">
-             <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-aosGreen font-bold border-2 border-yellow-400">
-                AoS
+             <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-aosGreen border-2 border-yellow-400 shadow-md hover:shadow-lg transition">
+                <i className="fas fa-wifi"></i>
+                
              </div>
              <h2 className="text-xl font-bold uppercase tracking-wide">Thông Tin AoS</h2>
           </div>
@@ -248,7 +248,7 @@ const AoSInfoModal: React.FC<AoSInfoModalProps> = ({ isOpen, onClose, isLoggedIn
                                 </button>
                             )}
                             {!isEditing && (
-                                <span className="text-xs font-normal text-gray-500 bg-gray-100 px-2 py-1 rounded">Cập nhật bởi Admin</span>
+                                <span className="text-xs font-normal text-gray-500 bg-gray-100 px-2 py-1 rounded">Cập nhật bởi HĐMV</span>
                             )}
                         </div>
                         
@@ -357,7 +357,7 @@ const AoSInfoModal: React.FC<AoSInfoModalProps> = ({ isOpen, onClose, isLoggedIn
                                         type="text"
                                         value={editForm.socialLinks.website}
                                         onChange={(e) => handleSocialChange('website', e.target.value)}
-                                        placeholder="Link Website Chính thức"
+                                        placeholder="Link Roblox Group Chính thức"
                                         className="flex-1 border p-2 rounded text-sm focus:border-aosGreen outline-none"
                                     />
                                 </div>
@@ -367,7 +367,7 @@ const AoSInfoModal: React.FC<AoSInfoModalProps> = ({ isOpen, onClose, isLoggedIn
                                         type="text"
                                         value={editForm.socialLinks.youtube}
                                         onChange={(e) => handleSocialChange('youtube', e.target.value)}
-                                        placeholder="Link kênh Youtube"
+                                        placeholder="Link Discord"
                                         className="flex-1 border p-2 rounded text-sm focus:border-aosGreen outline-none"
                                     />
                                 </div>
@@ -380,8 +380,8 @@ const AoSInfoModal: React.FC<AoSInfoModalProps> = ({ isOpen, onClose, isLoggedIn
                                 <a href={infoData.socialLinks.website} target="_blank" rel="noreferrer" className="flex-1 bg-gray-800 text-white py-2 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition shadow">
                                     <i className="fas fa-globe"></i> Roblox Group
                                 </a>
-                                <a href={infoData.socialLinks.youtube} target="_blank" rel="noreferrer" className="flex-1 bg-red-600 text-white py-2 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition shadow">
-                                    <i className="fab fa-youtube"></i> Discord
+                                <a href={infoData.socialLinks.youtube} target="_blank" rel="noreferrer" className="flex-1 bg-[#5865F2] text-white py-2 rounded-lg flex items-center justify-center gap-2 transition shadow hover:bg-[#4752C4] hover:shadow-lg">
+                                    <i className="fab fa-discord"></i> Discord
                                 </a>
                             </div>
                         )}
@@ -418,7 +418,7 @@ const AoSInfoModal: React.FC<AoSInfoModalProps> = ({ isOpen, onClose, isLoggedIn
         {/* Standard Footer */}
         {!isEditing && (
             <div className="bg-gray-50 p-4 text-center border-t border-gray-100 shrink-0">
-                <p className="text-xs text-gray-400">© 2026 Quoc Dev.</p>
+                <p className="text-xs text-gray-400">Tất cả thông tin trên chỉ là roleplay , không có thật !</p>
             </div>
         )}
 
