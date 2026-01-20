@@ -293,7 +293,7 @@ const ClergyModal: React.FC<ClergyModalProps> = ({
 
                   {/* Category - Strict Options */}
                   <div>
-                    <label className="block text-sm font-bold text-gray-600">Nơi mục vụ</label>
+                    <label className="block text-sm font-bold text-gray-600">Phân Loại Mục Vụ</label>
                     {isViewMode ? (
                       <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
                         {formData.category === 'TGM_DCV' ? 'TGM & ĐCV' : formData.category === 'GIAO_XU' ? 'Giáo Xứ' : formData.category === 'HUU' ? 'Nhà Hưu' : formData.category === 'QUA_DOI' ? 'Nhà Cha' : 'Dòng Tu'}
