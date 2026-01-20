@@ -301,7 +301,23 @@ const App: React.FC = () => {
     return clergyList.filter(item => {
       const matchesSearch = item.fullName.toLowerCase().includes(searchTerm.toLowerCase()) || 
                             item.currentLocation.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesRole = filterRole === 'ALL' || item.role === filterRole;
+      
+      // LOGIC CŨ (CHỈ SO SÁNH BẰNG) - XOÁ DÒNG NÀY
+      // const matchesRole = filterRole === 'ALL' || item.role === filterRole; 
+
+      // LOGIC MỚI (HỖ TRỢ GỘP NHÓM)
+      let matchesRole = false;
+      if (filterRole === 'ALL') {
+          matchesRole = true;
+      } else if (filterRole.includes('|')) {
+          // Nếu value có dấu | (VD: "Tổng Giám Mục|Phó...") thì tách ra và kiểm tra
+          const roles = filterRole.split('|');
+          matchesRole = roles.includes(item.role);
+      } else {
+          // So sánh bình thường
+          matchesRole = item.role === filterRole;
+      }
+
       const matchesCategory = filterCategory === 'ALL' || item.category === filterCategory;
       return matchesSearch && matchesRole && matchesCategory;
     });
@@ -557,9 +573,7 @@ const App: React.FC = () => {
             onChange={(e) => setFilterRole(e.target.value)}
           >
             <option value="ALL">Sứ vụ</option>
-            <option value="Tổng Giám Mục">Tổng Giám Mục</option>
-            <option value="Phó Tổng Giám mục">Phó Tổng Giám Mục</option>
-            <option value="Giám Mục">Giám Mục Phụ Tá</option>
+            <option value="Tổng Giám Mục|Phó Tổng Giám Mục|Giám Mục Phụ Tá">Giám Mục</option>
             <option value="Linh Mục Chánh Xứ">Linh Mục Chánh Xứ</option>
             <option value="Linh Mục Phó Xứ">Linh Mục Phó Xứ</option>
             <option value="Linh Mục Dòng">Linh Mục Dòng</option>
