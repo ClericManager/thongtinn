@@ -1,4 +1,4 @@
-export type ClergyCategory = 'ALL' | 'TGM_DCV' | 'GIAO_XU' | 'DONG';
+export type ClergyCategory = 'ALL' | 'TGM_DCV' | 'GIAO_XU' | 'DONG' | 'HUU' | 'QUA_DOI';
 
 export type ClergyStatus = 
   | 'DANG_MUC_VU'      // Đang Mục Vụ (xanh lá)
