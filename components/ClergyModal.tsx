@@ -223,7 +223,7 @@ const ClergyModal: React.FC<ClergyModalProps> = ({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Full Name */}
                   <div className="col-span-2">
-                    <label className="block text-sm font-bold text-gray-600">Tên Thánh , Họ và Tên</label>
+                    <label className="block text-sm font-bold text-gray-600">Họ và Tên</label>
                     {isViewMode ? (
                       <p className="text-xl font-bold text-aosGreen">{formData.fullName}</p>
                     ) : (
@@ -296,7 +296,7 @@ const ClergyModal: React.FC<ClergyModalProps> = ({
                     <label className="block text-sm font-bold text-gray-600">Phân loại</label>
                     {isViewMode ? (
                       <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
-                        {formData.category === 'TGM_DCV' ? 'TGM & ĐCV' : formData.category === 'GIAO_XU' ? 'Giáo Xứ' : 'Dòng Tu'}
+                        {formData.category === 'TGM_DCV' ? 'TGM & ĐCV' : formData.category === 'GIAO_XU' ? 'Giáo Xứ' : formData.category === 'HUU' ? 'Nhà Hưu' : formData.category === 'QUA_DOI' ? 'Nhà Cha' : 'Dòng Tu'}
                       </span>
                     ) : (
                       <select
@@ -308,6 +308,8 @@ const ClergyModal: React.FC<ClergyModalProps> = ({
                         <option value="GIAO_XU">Giáo Xứ</option>
                         <option value="TGM_DCV">TGM & ĐCV</option>
                         <option value="DONG">Dòng Tu</option>
+                        <option value="HUU">Nhà Hưu</option>
+                        <option value="QUA_DOI">Nhà Cha</option>
                       </select>
                     )}
                   </div>
