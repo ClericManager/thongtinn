@@ -572,14 +572,13 @@ const App: React.FC = () => {
             value={filterRole}
             onChange={(e) => setFilterRole(e.target.value)}
           >
-            <option value="ALL">Sứ vụ</option>
+            <option value="ALL">Tất cả sứ vụ</option>
             <option value="Tổng Giám Mục|Phó Tổng Giám Mục|Giám Mục Phụ Tá">Giám Mục</option>
             <option value="Linh Mục Chánh Xứ">Linh Mục Chánh Xứ</option>
             <option value="Linh Mục Phó Xứ">Linh Mục Phó Xứ</option>
             <option value="Linh Mục Dòng">Linh Mục Dòng</option>
             <option value="Linh Mục Tòa">Linh Mục Tòa</option>
             <option value="Phó tế">Phó tế</option>
-            <option value="Về Hưu">Về Hưu</option>
           </select>
 
            <select 
@@ -587,10 +586,12 @@ const App: React.FC = () => {
             value={filterCategory}
             onChange={(e) => setFilterCategory(e.target.value)}
           >
-            <option value="ALL">Nơi Mục Vụ</option>
+            <option value="ALL">Tất cả nơi mục Vụ</option>
             <option value="GIAO_XU">Giáo Xứ</option>
             <option value="TGM_DCV">TGM & ĐCV</option>
             <option value="DONG">Dòng Tu</option>
+            <option value="HUU">Nhà Hưu</option>
+            <option value="QUA_DOI">Nhà Cha</option>
           </select>
           
           <button className="w-full bg-aosGreen text-white rounded-lg py-2 hover:bg-green-800 transition font-medium">
