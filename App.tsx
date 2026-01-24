@@ -39,19 +39,20 @@ const STATUS_CONFIG = {
     color: 'bg-red-700',
     textColor: 'text-red-800',
     bgLight: 'bg-red-300'
-  }
+  },
   VE_HUU: {
     label: 'Về hưu',
     color: 'bg-slate-500',
     textColor: 'text-slate-700',
     bgLight: 'bg-slate-100'
-  }
+  },
   NHA_CHA: {
     label: 'Nhà Cha',
     color: 'bg-purple-700',
     textColor: 'text-purple-800',
     bgLight: 'bg-purple-100'
-  },;
+  },
+};
 
 const getStatusConfig = (status: string) => {
   return STATUS_CONFIG[status as keyof typeof STATUS_CONFIG] || STATUS_CONFIG.DANG_MUC_VU;
