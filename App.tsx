@@ -46,7 +46,7 @@ const STATUS_CONFIG = {
     textColor: 'text-slate-700',
     bgLight: 'bg-slate-100'
   }
-    NHA_CHA: {
+  NHA_CHA: {
     label: 'Nhà Cha',
     color: 'bg-purple-700',
     textColor: 'text-purple-800',
